@@ -74,7 +74,7 @@ namespace Streamish.Repositories
                         UPDATE UserProfile
                         SET Name = @Name,
                             Email = @Email,
-                            ImageUrl = @ImageUrl
+                            ImageUrl = @ImageUrl,
                             DateCreated = @DateCreated
                         WHERE Id = @Id
                         ";
@@ -82,10 +82,24 @@ namespace Streamish.Repositories
                     DbUtils.AddParameter(cmd, "@Email", userProfile.Email);
                     DbUtils.AddParameter(cmd, "@ImageUrl", userProfile.ImageUrl);
                     DbUtils.AddParameter(cmd, "@DateCreated", userProfile.DateCreated);
+                    DbUtils.AddParameter(cmd, "@Id", userProfile.Id);
 
                     cmd.ExecuteNonQuery();
                 }
             }    
+        }
+        public void Delete(int id)
+        {
+            using (var conn = Connection)
+            {
+                conn.Open();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "DELETE FROM UserProfile WHERE Id = @Id";
+                    DbUtils.AddParameter(cmd, "@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
     }
 }

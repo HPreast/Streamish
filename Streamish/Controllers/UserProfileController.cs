@@ -41,5 +41,11 @@ namespace Streamish.Controllers
             _userProfileRepository.Update(userProfile);
             return NoContent();
         }
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _userProfileRepository.Delete(id);
+            return NoContent();
+        }
     }
 }
