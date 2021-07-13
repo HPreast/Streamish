@@ -6,7 +6,7 @@ const Video = ({ video }) => {
     // console.log(video);
     return (
         <Card >
-            <p className="text-left px-2">Posted by: {video.userProfile.name}</p>
+            <p className="text-left px-2">Posted by: <Link to={`/users/${video.id}`}>{video.userProfile.name}</Link></p>
             <CardBody>
                 <iframe className="video"
                     src={video.url}
