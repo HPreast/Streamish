@@ -5,7 +5,7 @@ import SearchCard from "./SearchCard";
 
 const VideoList = () => {
     const [videos, setVideos] = useState([]);
-    // const [results, setResults] = useState();
+    const [results, setResults] = useState();
     const [search, setSearch] = useState('');
 
     const getVideos = () => {
@@ -13,19 +13,19 @@ const VideoList = () => {
         // console.log(videos);
     };
 
-    const results = (searchString) => {
+    const result = (searchString) => {
         let matchingVideos = videos.filter(video => {
 
             if (video.title.toLowerCase().includes(searchString)) {
                 return true;
             }
         })
-        setVideos(matchingVideos);
+        setResults(matchingVideos);
     }
 
     useEffect(() => {
         getVideos();
-        results(search);
+        result(search);
     }, [search]);
 
     return (
@@ -43,7 +43,7 @@ const VideoList = () => {
                         <Video video={video} key={video.id} />
                     ))}
                 </div> :
-                    videos.map(res =>
+                    results.map(res =>
                         <SearchCard
                             key={res.id}
                             result={res} />
