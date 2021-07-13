@@ -21,7 +21,7 @@ namespace Streamish.Controllers
             return Ok(_videoRepository.GetAll());
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetById")]
         public IActionResult Get(int id)
         {
             var video = _videoRepository.GetById(id);
