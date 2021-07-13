@@ -5,6 +5,10 @@ export const getAllVideos = () => {
         .then((res) => res.json())
 };
 
+export const getVideo = (id) => {
+    return fetch(`${baseUrl}/GetWithCommentsById?id=${id}`).then((res) => res.json());
+};
+
 export const addVideo = (video) => {
     return fetch(baseUrl, {
         method: "POST",

@@ -10,8 +10,8 @@ const VideoList = () => {
 
     const getVideos = () => {
         getAllVideos().then(res => setVideos(res));
-        // console.log(videos);
     };
+    // console.log(videos);
 
     const result = (searchString) => {
         let matchingVideos = videos.filter(video => {
