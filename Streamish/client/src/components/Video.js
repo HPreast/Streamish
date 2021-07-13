@@ -21,7 +21,7 @@ const Video = ({ video }) => {
                 </p>
                 <p>{video.description}</p>
                 <div>
-                    {video.comments.map((comment) => (
+                    {video.comments?.map((comment) => (
                         <p>{comment.message}</p>
 
                     ))}

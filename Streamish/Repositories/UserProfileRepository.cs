@@ -145,7 +145,15 @@ namespace Streamish.Repositories
                                 Description = DbUtils.GetString(reader, "Description"),
                                 Url = DbUtils.GetString(reader, "Url"),
                                 DateCreated = DbUtils.GetDateTime(reader, "VideoDateCreated"),
-                                UserProfileId = id
+                                UserProfileId = id,
+                                UserProfile = new UserProfile()
+                                {
+                                    Id = DbUtils.GetInt(reader, "Id"),
+                                    Name = DbUtils.GetString(reader, "Name"),
+                                    Email = DbUtils.GetString(reader, "Email"),
+                                    DateCreated = DbUtils.GetDateTime(reader, "UserProfileDateCreated"),
+                                    ImageUrl = DbUtils.GetString(reader, "ImageUrl"),
+                                },
                             });
                         }
                     }
